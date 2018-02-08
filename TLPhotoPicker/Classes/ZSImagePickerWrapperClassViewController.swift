@@ -12,7 +12,6 @@ import Photos
 @objc protocol ZSImagePickerWrapperClassDelegate {
     
     func picked(images:[PHAsset]?)
-    func getSelectedImagesCount(count :Int64)
     
 }
 
@@ -82,25 +81,27 @@ extension ZSImagePickerWrapperClassViewController : TLPhotosPickerViewController
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         self.selectedAssets = withTLPHAssets
     }
+    
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
         
         self.imagePickerDelegate?.picked(images: withPHAssets)
         
     }
+    // This method is called when the cancel button is tapped in image picker.
     func photoPickerDidCancel() {
         
     }
+    
     func dismissComplete() {
         
-        
     }
+    
+    //This method is called when the number of images selected exceed the maximum image selection limit.
     
     func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) {
         
     }
-    func didStartSelectingImage(WithCount: Int64) {
-        self.imagePickerDelegate?.getSelectedImagesCount(count: WithCount)
-    }
+ 
     
 
 }
