@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import Photos
 
 class ZSCustomPhotoPickerViewController: TLPhotosPickerViewController {
     override func makeUI() {
         super.makeUI()
-        self.customNavItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: nil, action: #selector(customAction))
+        self.customNavItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: nil, action: #selector(customDismissAction))
+        
         
     }
-    @objc func customAction() {
+    @objc func customDismissAction() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -32,7 +34,13 @@ class ZSCustomPhotoPickerViewController: TLPhotosPickerViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
     }
+    
+    
+    
 }
+
+
+
 

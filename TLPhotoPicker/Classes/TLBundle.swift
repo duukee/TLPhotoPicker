@@ -15,6 +15,6 @@ class TLBundle {
             let bundle = Bundle(url: url)
             return UIImage(named: named, in: bundle, compatibleWith: nil)!
         }
-        return nil
+        return UIImage(named: named, in: nil, compatibleWith: nil)!
     }
 }
